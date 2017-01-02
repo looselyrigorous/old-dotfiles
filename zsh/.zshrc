@@ -3,6 +3,9 @@ export ZDOTDIR=$HOME/.zsh
 # Stash for environment vars
 if [[ -a $ZDOTDIR/localrc ]]; then
 	source $ZDOTDIR/localrc
+
+else
+	touch $ZDOTDIR/localrc
 fi
 
 # load config filenames into an array
