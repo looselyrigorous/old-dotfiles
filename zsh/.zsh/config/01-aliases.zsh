@@ -4,7 +4,7 @@ dnssr() {
 	echo $(date +"%Y%m%d")$1
 }
 
-if [[ "$OSTYPE" == "darwin*" ]]; then
+if [[ "$OSTYPE" == darwin* ]]; then
 	alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
 	alias rssi="airport -I | grep \"CtlRSSI\|SSID\" | grep -v BSSID | sed -E 's/(^.*:) (.*)/\2/g' | sed -E 'N;s/(.*)\n(.*)/SSID: \2 RSSI: \1/'"
 	alias o="open"
