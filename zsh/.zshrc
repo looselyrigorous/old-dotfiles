@@ -19,6 +19,9 @@ done
 
 # Bootstrap zplug
 export ZPLUG_HOME=$ZDOTDIR/.zplug
+if [[ ! -d $ZPLUG_HOME ]] || [[ ! -f "$ZPLUG_HOME/init.zsh" ]]; then
+	git clone https://github.com/zplug/zplug $ZPLUG_HOME
+fi
 source $ZPLUG_HOME/init.zsh
 
 # Source ZSH plugins
