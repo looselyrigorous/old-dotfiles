@@ -69,6 +69,3 @@ bindkey -e
 [[ -n "${key[Right]}"   ]] && bindkey "${key[Right]}"   forward-char
 [[ -n "${key[BackTab]}" ]] && bindkey "${key[BackTab]}" reverse-menu-complete
 bindkey "^Z" ctrlz
-
-# History substring search configuration
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=
