@@ -5,6 +5,9 @@
 zmodload zsh/terminfo
 typeset -A key
 key=(
+	'ControlLeft'  '\e[1;5D \e[5D \e\e[D \eOd'
+	'ControlRight' '\e[1;5C \e[5C \e\e[C \eOc'
+	'Escape'       '\e'
 	'Delete'       "$terminfo[kdch1]"
 	'F1'           "$terminfo[kf1]"
 	'F2'           "$terminfo[kf2]"
@@ -59,7 +62,7 @@ function ctrlz() {
 zle -N ctrlz
 
 # Key Bindings
-bindkey -e
+bindkey -e # Use emacs bindings
 [[ -n "${key[Home]}"    ]] && bindkey "${key[Home]}"    beginning-of-line
 [[ -n "${key[End]}"     ]] && bindkey "${key[End]}"     end-of-line
 [[ -n "${key[Delete]}"  ]] && bindkey "${key[Delete]}"  delete-char
@@ -69,3 +72,7 @@ bindkey -e
 [[ -n "${key[Right]}"   ]] && bindkey "${key[Right]}"   forward-char
 [[ -n "${key[BackTab]}" ]] && bindkey "${key[BackTab]}" reverse-menu-complete
 bindkey "^Z" ctrlz
+for _key in "$key[Escape]"{B,b} "${(s: :)key[ControlLeft]}"
+	bindkey -M emacs "$_key" emacs-backward-word
+for _key in "$key[Escape]"{F,f} "${(s: :)key[ControlRight]}"
+	bindkey -M emacs "$_key" emacs-forward-word
