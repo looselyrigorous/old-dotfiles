@@ -12,7 +12,7 @@ fi
 typeset -U config_files
 config_files=($ZDOTDIR/**/*.zsh)
 
-# Load all config files except those named "completion.zsh"
+# Load all config files
 for file in ${config_files}; do
 	source $file
 done
