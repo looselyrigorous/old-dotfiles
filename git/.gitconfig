@@ -1,0 +1,9 @@
+[user]
+	name = Constantine K
+	email = looselyrigorous@gmail.com
+[core]
+	editor = vim
+	pager = less -F -X
+	excludesfile = ~/.dotfiles/git/gitignore
+[push]
+	default = simple
