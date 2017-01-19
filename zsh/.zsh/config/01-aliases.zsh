@@ -42,8 +42,9 @@ fi
 (( $+commands[thefuck] )) && eval $(thefuck --alias)
 (( $+commands[nvim] )) && alias vim="nvim"
 if (( $+commands[nvim] )) then;
-	alias vimrc="vim $HOME/.config/nvim/init.vim"
-elif (( $+commands[vim] )) then;
+	alias nvimrc="vim $HOME/.config/nvim/init.vim"
+fi
+if (( $+commands[vim] )) then;
 	[[ -f $HOME/.vimrc ]] && alias vimrc="vim $HOME/.vimrc"
 	[[ -f $HOME/.vim/vimrc ]] && alias vimrc="vim $HOME/.vim/vimrc"
 fi
