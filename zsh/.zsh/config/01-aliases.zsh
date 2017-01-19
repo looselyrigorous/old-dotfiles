@@ -19,6 +19,16 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	}
 fi
 
+# Interactive mv, rm, cp
+alias mv="mv -i"
+alias cp="cp -i"
+alias rm="rm -i"
+
+# Aliases for ls
+alias l="ls -a"
+alias ll="ls -lh"
+alias la="ls -alh"
+
 alias j="jobs"
 if (( $+commands[python2] )); then
 	alias py="python2"
