@@ -7,7 +7,7 @@ alias gds="git diff --staged"
 alias gc="git commit"
 alias gco="git checkout"
 alias ga="git add"
-alias ga="git add -p"
+alias gap="git add -p"
 alias gcl="git clone"
 
 # GitIgnore.io
