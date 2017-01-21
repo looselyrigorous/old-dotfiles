@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # Coloured ls output
-if (( $+commands['dircolors'] )); then
+if (( $+commands[dircolors] )); then
 	# GNU Core Utilities
 	alias ls='ls --group-directories-first'
 
