@@ -7,3 +7,5 @@
 	excludesfile = ~/.dotfiles/git/gitignore
 [push]
 	default = simple
+[alias]
+	root = "rev-parse --show-toplevel"
