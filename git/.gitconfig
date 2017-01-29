@@ -5,6 +5,7 @@
 	editor = vim
 	pager = less -F -X
 	excludesfile = ~/.dotfiles/git/gitignore
+	whitespace = trailing-space,space-before-tab
 [push]
 	default = simple
 [alias]
