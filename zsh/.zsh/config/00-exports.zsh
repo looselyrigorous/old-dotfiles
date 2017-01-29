@@ -9,7 +9,11 @@ elif (( $+commands[nano] )); then
 	export EDITOR=nano
 fi
 
-export PAGER=less
+if (( $+commands[most] )); then
+	export PAGER=most
+else
+	export PAGER=less
+fi
 
 export CLICOLOR=1
 export BLOCK_SIZE=human-readable
