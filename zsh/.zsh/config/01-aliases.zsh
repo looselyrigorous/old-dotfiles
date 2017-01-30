@@ -5,6 +5,34 @@ dnssr() {
 }
 
 if [[ "$OSTYPE" == darwin* ]]; then
+	pfd() {
+		osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then log POSIX path of (target of front Finder window as text)'
+	}
+
+	pfs() {
+		osascript -e 'tell application "Finder" to set the_selection to selection
+		if the_selection is not {}
+			repeat with an_item in the_selection
+			log POSIX path of (an_item as text)
+			end repeat
+		end if'
+	}
+
+	cdf() {
+		local target=$pfd
+		if [ "$target" != "" ]; then
+			cd "$target"; pwd
+		else
+			echo 'No Finder window found' >&2
+		fi
+	}
+
+	ql() {
+		if (( $# > 0 )); then
+		qlmanage -p "$@" &> /dev/null
+		fi
+	}
+
 	alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
 	alias rssi="airport -I | grep \"CtlRSSI\|SSID\" | grep -v BSSID | sed -E 's/(^.*:) (.*)/\2/g' | sed -E 'N;s/(.*)\n(.*)/SSID: \2 RSSI: \1/'"
 	alias o="open"
