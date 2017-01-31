@@ -6,20 +6,22 @@ dnssr() {
 
 if [[ "$OSTYPE" == darwin* ]]; then
 	pfd() {
-		osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then log POSIX path of (target of front Finder window as text)'
+		osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'
 	}
 
 	pfs() {
 		osascript -e 'tell application "Finder" to set the_selection to selection
 		if the_selection is not {}
+			set result to "" as text
 			repeat with an_item in the_selection
-			log POSIX path of (an_item as text)
+			set result to result & POSIX path of (an_item as text) & linefeed
 			end repeat
+			return result
 		end if'
 	}
 
 	cdf() {
-		local target=$pfd
+		local target="$(pfd)"
 		if [ "$target" != "" ]; then
 			cd "$target"; pwd
 		else
