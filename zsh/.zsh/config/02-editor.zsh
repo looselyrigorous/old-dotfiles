@@ -61,6 +61,15 @@ function ctrlz() {
 
 zle -N ctrlz
 
+# Insert sudo at beginning of cmd
+# https://github.com/dzervas/dotfiles/blob/master/zsh/.zshrc
+insert_sudo() {
+	zle beginning-of-line
+	zle -U "sudo "
+}
+
+zle -N insert_sudo
+
 # Key Bindings
 bindkey -e # Use emacs bindings
 [[ -n "${key[Home]}"    ]] && bindkey "${key[Home]}"    beginning-of-line
@@ -71,7 +80,10 @@ bindkey -e # Use emacs bindings
 [[ -n "${key[Left]}"    ]] && bindkey "${key[Left]}"    backward-char
 [[ -n "${key[Right]}"   ]] && bindkey "${key[Right]}"   forward-char
 [[ -n "${key[BackTab]}" ]] && bindkey "${key[BackTab]}" reverse-menu-complete
+
 bindkey "^Z" ctrlz
+bindkey "\e\e" insert_sudo
+
 for _key in "$key[Escape]"{B,b} "${(s: :)key[ControlLeft]}"
 	bindkey -M emacs "$_key" emacs-backward-word
 for _key in "$key[Escape]"{F,f} "${(s: :)key[ControlRight]}"
