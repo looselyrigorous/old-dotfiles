@@ -31,7 +31,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
 	ql() {
 		if (( $# > 0 )); then
-		qlmanage -p "$@" &> /dev/null
+			qlmanage -p "$@" &> /dev/null
 		fi
 	}
 
@@ -40,8 +40,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	alias o="open"
 
 	doorlock() {
-			NETWORK=$(airport -I | grep SSID | grep -v BSSID | sed -E 's/(^.*:) (.*)/\2/g')
-			if [ "$NETWORK" != 'toLABaki' ]; then
+			NETWORK="$(airport -I | grep SSID | grep -v BSSID | sed -E 's/(^.*:) (.*)/\2/g')"
+			if [ "$NETWORK" != "toLABaki" ]; then
 			ssh labaki1.csd.uoc.gr:6007 "doorlock"
 		else
 			ssh 10.176.4.46 "doorlock"
