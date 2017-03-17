@@ -20,3 +20,6 @@ export BLOCK_SIZE=human-readable
 export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTFILE="$ZDOTDIR/.zhistory"
+
+# Enable GCC colored output by default (gcc >= 4.9)
+export export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
