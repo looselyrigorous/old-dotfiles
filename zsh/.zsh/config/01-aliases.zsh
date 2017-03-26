@@ -55,6 +55,9 @@ alias cp="cp -i"
 alias rm="rm -i"
 
 # Aliases for ls
+if (( $+commands[exa] )); then
+	alias ls="exa"
+fi
 alias l="ls -a"
 alias ll="ls -lh"
 alias la="ls -alh"
