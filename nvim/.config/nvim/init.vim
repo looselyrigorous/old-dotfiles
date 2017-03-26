@@ -47,6 +47,7 @@ Plug 'mips.vim'
 "Plug 'tpope/vim-vividchalk'
 Plug 'tomasr/molokai'
 Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 "Plug 'altercation/vim-colors-solarized'
 
 " Funzies
@@ -96,15 +97,17 @@ set title           " change terminal title
 set noshowmode       " Do not show --MODE--
 set laststatus=2    " Show Airline
 "set list
-set list lcs=tab:\␉\ 
+set list lcs=tab:\▸\ 
 "set list lcs=tab:\┊\ 
 "set list lcs=tab:\➤\ 
 
 " Colourscheme
 syntax on
-"set bg=dark
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-default-dark
+set bg=dark
+set termguicolors
+"let base16colorspace=256  " Access colors present in 256 colorspace
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 " Editor
 set backspace=indent,eol,start
@@ -141,7 +144,7 @@ nnoremap <silent> <C-l> :nohl<CR>
 
 " Airline / Tmuxline
 "let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16'
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
@@ -177,6 +180,8 @@ inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
+" vim-better-whitespace
+hi link ExtraWhitespace vimError
 
 " echodoc
 "let g:echodoc_enable_at_startup = 1
