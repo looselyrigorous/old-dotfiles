@@ -15,6 +15,7 @@ Plug 'airblade/vim-gitgutter'
 " Editor
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Raimondi/delimitMate' " auto-complete for delimiters
 "Plug 'jiangmiao/auto-pairs' " Very annoying
