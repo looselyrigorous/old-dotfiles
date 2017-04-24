@@ -15,6 +15,10 @@ else
 	export PAGER=less
 fi
 
+if (( $+commands[nvim] )); then
+	export MANPAGER="nvim -c 'set ft=man' -"
+fi
+
 export CLICOLOR=1
 export BLOCK_SIZE=human-readable
 export HISTSIZE=1000
