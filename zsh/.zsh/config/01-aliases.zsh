@@ -72,6 +72,12 @@ if (( $+commands[python3] )); then
 	alias py3="python3"
 	gpip3() { PIP_REQUIRE_VIRTUALENV="" pip3 "$@" }
 fi
+
+# https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments
+if (( $+commands[pygmentize] )); then
+	pless() { pygmentize -g -f 16m $* | less -R }
+fi
+
 (( $+commands[thefuck] )) && eval $(thefuck --alias)
 (( $+commands[nvim] )) && alias vim="nvim"
 if (( $+commands[nvim] )) then;
