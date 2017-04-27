@@ -1,0 +1,2 @@
+bind pager <up> previous-line #scroll inside the message rather than the index
+bind pager <down> next-line
