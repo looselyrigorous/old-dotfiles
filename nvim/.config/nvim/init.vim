@@ -176,6 +176,7 @@ let delimitMate_expand_cr = 1
 " FZF
 nnoremap <silent><Leader>f :Files<CR>
 nnoremap <silent><Leader>w :Window<CR>
+nnoremap <silent><Leader>b :Buffers<CR>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
