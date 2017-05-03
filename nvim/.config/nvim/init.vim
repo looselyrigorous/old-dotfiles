@@ -163,6 +163,11 @@ let g:airline_right_sep = ''
 "	\ 'args': ['--rule "no-unused-vars: 0"']
 "	\ }
 "let g:neomake_java_enabled_makers = []
+if has('unix')
+	if has('mac')
+		set makeprg=gmake
+	endif
+endif
 autocmd! BufWritePost * Neomake
 
 " delimitMate
