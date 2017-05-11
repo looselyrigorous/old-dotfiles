@@ -187,7 +187,7 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 " vim-better-whitespace
-hi link ExtraWhitespace vimError
+hi link ExtraWhitespace Error
 
 " echodoc
 "let g:echodoc_enable_at_startup = 1
