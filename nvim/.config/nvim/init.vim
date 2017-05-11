@@ -91,7 +91,6 @@ set smartcase       " ignore case if search pattern is all lowercase, case-sensi
 set relativenumber  " make line numbers relative to current
 set number          " always show line numbers
 set showmatch       " show matching parenthesis
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape between insert and normal mode in Iterm2
 set showcmd         " show keystrokes on current command
 set title           " change terminal title
 "set cursorline      " highlights current line
