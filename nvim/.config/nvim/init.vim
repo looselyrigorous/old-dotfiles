@@ -25,6 +25,7 @@ Plug 'triglav/vim-visual-increment'
 Plug 'moll/vim-bbye'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'majutsushi/tagbar'
 "Plug 'Shougo/echodoc.vim'
 Plug 'nicholaides/words-to-avoid.vim'
 Plug 'godlygeek/tabular'
@@ -189,6 +190,9 @@ set completeopt-=preview
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+
+" Tagbar
+nnoremap <silent><Leader>t :TagbarToggle<CR>
 
 " vim-better-whitespace
 hi link ExtraWhitespace Error
