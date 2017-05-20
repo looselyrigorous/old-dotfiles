@@ -17,36 +17,27 @@ for file in ${config_files}; do
 	source $file
 done
 
-# Bootstrap zplug
-export ZPLUG_HOME=$ZDOTDIR/.zplug
-if [[ ! -d $ZPLUG_HOME ]] || [[ ! -f "$ZPLUG_HOME/init.zsh" ]]; then
-	git clone https://github.com/zplug/zplug $ZPLUG_HOME
+# Bootstrap and source antibody
+if [[ ! -f "/usr/local/bin/antibody" ]]; then
+	curl -s https://raw.githubusercontent.com/getantibody/installer/master/install | bash -s
 fi
-source $ZPLUG_HOME/init.zsh
+source <(antibody init)
 
 # Source ZSH plugins
-# zplug
-zplug "zplug/zplug"
-
 # Pure prompt
-zplug "mafredri/zsh-async", defer:0
-zplug "sindresorhus/pure", as:theme, use:pure.zsh
+antibody bundle <<EOF
+mafredri/zsh-async
+sindresorhus/pure
+zsh-users/zsh-completions
+greymd/docker-zsh-completion
+zsh-users/zsh-autosuggestions
+hlissner/zsh-autopair
+zdharma/fast-syntax-highlighting
+zdharma/history-search-multi-word
+EOF
 
-# Docker completion
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/docker-compose", from:oh-my-zsh
-
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "hlissner/zsh-autopair", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
-
-# Install missing plugins
-if ! zplug check; then
-	zplug install
-fi
-
-# Load plugins
-zplug load
-# Make fg/bg work again https://github.com/zplug/zplug/issues/322
-setopt monitor
+# Autoloads
+autoload -U colors && colors
+autoload -U promptinit && promptinit
+autoload -U compinit && compinit
+autoload -U zmv
