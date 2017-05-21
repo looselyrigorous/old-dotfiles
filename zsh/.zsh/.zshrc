@@ -1,5 +1,3 @@
-export ZDOTDIR=$HOME/.zsh
-
 # Stash for environment vars
 if [[ -a $ZDOTDIR/localrc ]]; then
 	source $ZDOTDIR/localrc
@@ -40,4 +38,4 @@ EOF
 autoload -U colors && colors
 autoload -U promptinit && promptinit
 autoload -U compinit && compinit
-autoload -U zmv
+autload -U zmv
