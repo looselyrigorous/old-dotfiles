@@ -38,4 +38,4 @@ EOF
 autoload -U colors && colors
 autoload -U promptinit && promptinit
 autoload -U compinit && compinit
-autload -U zmv
+autoload -U zmv
