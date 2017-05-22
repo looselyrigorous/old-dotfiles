@@ -1,0 +1,47 @@
+// Place your settings in this file to overwrite the default settings
+{
+    // Editor
+    "editor.fontSize": 13,
+    "terminal.integrated.fontSize": 13,
+    "editor.fontFamily": "Iosevka Type, Fira Code, Monaco, monospace",
+    "editor.renderWhitespace": "all",
+
+    // Exclusion patterns for file browser
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true
+    },
+    "files.insertFinalNewline": true,
+
+    // Terminal Settings
+    "terminal.integrated.enableBold": false,
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "terminal.integrated.shellArgs.osx": [
+        "-l"
+    ],
+
+    // "Workbench" Style customization
+    "workbench.colorTheme": "Gruvbox Dark (Medium)",
+    "workbench.iconTheme": "material-icon-theme",
+
+    // Vim Plugin Settings
+    "vim.useCtrlKeys": true,
+    "vim.surround": true,
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors": {
+        "normal": "#a89984",
+        "insert": "#7ca96c",
+        "visual": "#d7a423",
+        "visualline": "#d7a423",
+        "visualblock": "#d7a423",
+        "replace": "#8ec17d"
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#a89984",
+        "statusBar.noFolderBackground": "#a89984",
+        "statusBar.debuggingBackground": "#a89984"
+    },
+    "workbench.sideBar.location": "right"
+}
