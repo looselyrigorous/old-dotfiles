@@ -1,6 +1,7 @@
 [user]
 	name = Constantine K
 	email = looselyrigorous@gmail.com
+	signingkey = E63A5B383165BD72
 [core]
 	editor = vim
 	pager = less -F -X
@@ -10,3 +11,5 @@
 	default = simple
 [alias]
 	root = "rev-parse --show-toplevel"
+[commit]
+	gpgsign = true
