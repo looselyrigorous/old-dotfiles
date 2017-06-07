@@ -1,7 +1,7 @@
 {
     "editor.fontSize": 13,
     "terminal.integrated.fontSize": 13,
-    "editor.fontFamily": "Iosevka Type, Fira Code, Monaco, monospace",
+    "editor.fontFamily": "Iosevka Term, Fira Code, Monaco, monospace",
     "editor.renderWhitespace": "all",
 
     "files.exclude": {
@@ -21,6 +21,9 @@
     "workbench.colorTheme": "Gruvbox Dark (Medium)",
     "workbench.iconTheme": "material-icon-theme",
 
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "nvim",
+    "vim.disableAnnoyingNeovimMessage": true,
     "vim.useCtrlKeys": true,
     "vim.surround": true,
     "vim.statusBarColorControl": true,
@@ -37,5 +40,7 @@
         "statusBar.noFolderBackground": "#a89984",
         "statusBar.debuggingBackground": "#a89984"
     },
-    "workbench.sideBar.location": "right"
+    "workbench.sideBar.location": "right",
+
+    "C_Cpp.intelliSenseEngine": "Default"
 }
