@@ -149,15 +149,6 @@ cnoremap :w!! w !sudo tee % > /dev/null
 nnoremap <silent> <C-l> :nohl<CR>
 
 " --- Plugin Behaviour Config ---
-" VimFiler
-" Like Textmate icons.
-"let g:vimfiler_tree_leaf_icon = ' '
-"let g:vimfiler_tree_opened_icon = '▾'
-"let g:vimfiler_tree_closed_icon = '▹'
-"let g:vimfiler_file_icon = '-'
-"let g:vimfiler_marked_file_icon = '*'
-"let g:vimfiler_readonly_file_icon = '🔒'
-"let g:vimfiler_as_default_explorer = 1
 
 " Airline / Tmuxline
 "let g:airline_powerline_fonts = 1
@@ -168,11 +159,6 @@ let g:airline#extensions#syntastic#enabled = 1
 "let g:airline_exclude_preview = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-
-" Syntastic
-"let g:syntastic_mode_map = { "mode": "passive" }
-"let g:syntastic_full_redraws=1
-"nnoremap <Leader>cc :SyntasticToggleMode<CR>
 
 " Neomake
 "let g:neomake_javascript_eslint_maker = {
@@ -201,8 +187,6 @@ set completeopt-=preview
 " vim-better-whitespace
 hi link ExtraWhitespace Error
 
-" echodoc
-"let g:echodoc_enable_at_startup = 1
 
 " deoplete-clang
 " Set appropriate paths on macOS
