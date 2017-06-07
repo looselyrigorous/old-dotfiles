@@ -98,7 +98,7 @@ set number          " always show line numbers
 set showmatch       " show matching parenthesis
 set showcmd         " show keystrokes on current command
 set title           " change terminal title
-"set cursorline      " highlights current line
+set cursorline      " highlights current line
 set noshowmode       " Do not show --MODE--
 set laststatus=2    " Show Airline
 "set list
