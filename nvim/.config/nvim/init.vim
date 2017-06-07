@@ -78,8 +78,8 @@ set mouse=a
 
 " Indentation
 set autoindent      " always set autoindenting on
-"set copyindent      " copy the previous indentation on autoindenting
-"set smartindent     " smart autoindenting in new line
+set copyindent      " copy the previous indentation on autoindenting
+set smartindent     " smart autoindenting in new line
 set tabstop=4       " number of spaces to use for tabulation
 set shiftwidth=4    " number of spaces to use for space indenting
 set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
