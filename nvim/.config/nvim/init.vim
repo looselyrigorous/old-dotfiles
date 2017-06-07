@@ -15,48 +15,52 @@ Plug 'airblade/vim-gitgutter'
 " Editor
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-obsession'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Raimondi/delimitMate' " auto-complete for delimiters
-"Plug 'jiangmiao/auto-pairs' " Very annoying
-"Plug 'scrooloose/syntastic'
-Plug 'neomake/neomake'
 Plug 'triglav/vim-visual-increment'
-Plug 'moll/vim-bbye'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'majutsushi/tagbar'
-"Plug 'Shougo/echodoc.vim'
-Plug 'nicholaides/words-to-avoid.vim'
-Plug 'godlygeek/tabular'
-"Plug 'critiqjo/lldb.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'godlygeek/tabular', { 'do': ':source tabular.vim' }
 
-" Completion Packages
-Plug 'zchee/deoplete-clang'
-Plug 'Shougo/neco-vim'
+" Buffer view helpers
+Plug 'majutsushi/tagbar'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+
+" Linting
+Plug 'w0rp/ale'
+
+" Completion
+Plug 'roxma/nvim-completion-manager'
+	" Completion Packages
+	Plug 'roxma/clang_complete'
+	Plug 'Shougo/neco-vim'
+
+" Debugging
+Plug 'critiqjo/lldb.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Session Management
+Plug 'tpope/vim-obsession'
+Plug 'moll/vim-bbye'
+
+" Misc Functionality
+Plug 'nicholaides/words-to-avoid.vim'
 
 " Filetypes
 Plug 'mips.vim'
 
 " Themes
-"Plug 'duythinht/inori'
-"Plug 'MaxSt/FlatColor'
 "Plug 'jnurmine/Zenburn'
-"Plug 'xero/blaquemagick.vim'
-"Plug 'w0ng/vim-hybrid'
-"Plug 'sk1418/last256'
-"Plug 'nanotech/jellybeans.vim'
-"Plug 'tpope/vim-vividchalk'
 Plug 'tomasr/molokai'
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
-"Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 " Funzies
 Plug 'koron/nyancat-vim'
 "Plug 'mattn/invader-vim'
 
 call plug#end()
+" Automatically called:
+"   filetype plugin indent on
+"   syntax enable
 
 " --- Native Behaviour Config ---
 
