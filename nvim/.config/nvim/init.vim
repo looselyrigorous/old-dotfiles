@@ -176,7 +176,7 @@ autocmd! BufWritePost * Neomake
 
 " Fugitive
 " https://github.com/tpope/vim-fugitive/issues/76
-command! Gtabdiff tabedit %|Gdiff
+command! Gdt tabedit %|Gdiff
 
 " delimitMate
 let delimitMate_expand_cr = 1
