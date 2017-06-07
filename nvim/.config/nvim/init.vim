@@ -121,19 +121,31 @@ set nowrap          " don't wrap lines
 set textwidth=100   " Wordwrap at 100th column
 set colorcolumn=+1  " Colour the 101st column
 
-" Key Maps
+" --- Key Mappings ---
+
+" Buffer traversal
 nnoremap <silent><F13> :bnext<CR>
 nnoremap <silent><F14> :bprevious<CR>
 inoremap <silent><F13> <Esc>:bnext<CR>
 inoremap <silent><F14> <Esc>:bprevious<CR>
 
-"set pastetoggle=<F4>
+" Completion
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <silent><expr><CR> pumvisible() ? "\<c-y>" : "\<CR>"
+
+" Tagbar
+nnoremap <silent><Leader>t :TagbarToggle<CR>
+
+" FZF
+nnoremap <silent><Leader>f :Files<CR>
+nnoremap <silent><Leader>w :Window<CR>
+nnoremap <silent><Leader>b :Buffers<CR>
+
 " save as root
-"cmap :w!! %!sudo tee > /dev/null %
-cabbrev w!! %!sudo tee > /dev/null %
-" <C-l> redraws the screen (neovim workaround)
-" and removes any search highlighting.
-"nnoremap <silent> <C-l> :mode<CR>:nohl<CR>
+cnoremap :w!! w !sudo tee % > /dev/null
+
+" Make <C-l> remove any search highlighting
 nnoremap <silent> <C-l> :nohl<CR>
 
 " --- Plugin Behaviour Config ---
@@ -181,22 +193,10 @@ command! Gtabdiff tabedit %|Gdiff
 " delimitMate
 let delimitMate_expand_cr = 1
 
-" FZF
-nnoremap <silent><Leader>f :Files<CR>
-nnoremap <silent><Leader>w :Window<CR>
-nnoremap <silent><Leader>b :Buffers<CR>
-
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#ignore_sources = { '_': 'buffer' }
 set completeopt-=preview
-" Completion bindings
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
-
-" Tagbar
-nnoremap <silent><Leader>t :TagbarToggle<CR>
 
 " vim-better-whitespace
 hi link ExtraWhitespace Error
