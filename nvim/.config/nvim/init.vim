@@ -86,6 +86,13 @@ set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
 set smarttab        " insert tabs on the start of a line according to shiftwidth, not tabstop
 "set expandtab
 
+" Set makeprg
+if has('unix')
+  if has('mac')
+    set makeprg=gmake
+  endif
+endif
+
 " Search
 set incsearch       " show search matches as you type
 set hlsearch        " highlight search terms
@@ -165,11 +172,6 @@ let g:airline_right_sep = ''
 "	\ 'args': ['--rule "no-unused-vars: 0"']
 "	\ }
 "let g:neomake_java_enabled_makers = []
-if has('unix')
-	if has('mac')
-		set makeprg=gmake
-	endif
-endif
 autocmd! BufWritePost * Neomake
 
 " Fugitive
