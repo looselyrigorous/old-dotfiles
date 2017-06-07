@@ -16,7 +16,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Raimondi/delimitMate' " auto-complete for delimiters
+Plug 'jiangmiao/auto-pairs'
 Plug 'triglav/vim-visual-increment'
 Plug 'godlygeek/tabular', { 'do': ':source tabular.vim' }
 
