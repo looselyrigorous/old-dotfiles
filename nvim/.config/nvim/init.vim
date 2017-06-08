@@ -5,6 +5,7 @@ let mapleader=","
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Dependencies
+Plug 'Shougo/vimproc.vim' " idanaraye/vim-vebugger
 Plug 'tpope/vim-repeat' " tpope/surround.vim
 
 " UI
@@ -36,7 +37,7 @@ Plug 'roxma/nvim-completion-manager'
 	Plug 'Shougo/neco-vim'
 
 " Debugging
-Plug 'critiqjo/lldb.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'idanarye/vim-vebugger'
 
 " Session Management
 Plug 'tpope/vim-obsession'
