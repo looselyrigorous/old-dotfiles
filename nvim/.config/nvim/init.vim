@@ -39,7 +39,7 @@ Plug 'roxma/nvim-completion-manager'
 	Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 " Debugging
-Plug 'idanarye/vim-vebugger'
+Plug 'idanarye/vim-vebugger', { 'branch': 'develop' }
 
 " Session Management
 Plug 'tpope/vim-obsession'
@@ -186,6 +186,13 @@ let g:ale_sign_column_always = 1
 " https://github.com/tpope/vim-fugitive/issues/76
 if exists(':Gdiff')
 	command! Gdt tabedit %|Gdiff
+endif
+
+" Vebugger
+if has('unix')
+	if has('mac')
+		let g:vebugger_path_python_lldb = '/usr/bin/python'
+	endif
 endif
 
 " nvim-completion-manager
