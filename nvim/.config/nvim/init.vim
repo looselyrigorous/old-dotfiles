@@ -181,9 +181,6 @@ autocmd! BufWritePost * Neomake
 " https://github.com/tpope/vim-fugitive/issues/76
 command! Gdt tabedit %|Gdiff
 
-" delimitMate
-let delimitMate_expand_cr = 1
-
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#ignore_sources = { '_': 'buffer' }
