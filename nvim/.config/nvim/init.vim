@@ -173,13 +173,6 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-" Neomake
-"let g:neomake_javascript_eslint_maker = {
-"	\ 'args': ['--rule "no-unused-vars: 0"']
-"	\ }
-"let g:neomake_java_enabled_makers = []
-autocmd! BufWritePost * Neomake
-
 " Fugitive
 " https://github.com/tpope/vim-fugitive/issues/76
 if exists(':Gdiff')
