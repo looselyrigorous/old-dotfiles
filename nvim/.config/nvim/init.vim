@@ -4,6 +4,9 @@ let mapleader=","
 " --- Plugin Manager Configuration ---
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Dependencies
+Plug 'tpope/vim-repeat' " tpope/surround.vim
+
 " UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -13,7 +16,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " Editor
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
