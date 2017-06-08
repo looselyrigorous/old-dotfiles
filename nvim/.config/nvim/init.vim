@@ -155,6 +155,10 @@ nnoremap <silent><Leader>f :Files<CR>
 nnoremap <silent><Leader>w :Window<CR>
 nnoremap <silent><Leader>b :Buffers<CR>
 
+" ALE
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 " save as root
 cnoremap :w!! w !sudo tee % > /dev/null
 
@@ -172,6 +176,11 @@ let g:airline#extensions#syntastic#enabled = 1
 "let g:airline_exclude_preview = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+
+" ALE
+let g:ale_sign_column_always = 1
+let g:ale_lint_delay = 800
+let g:ale_sign_column_always = 1
 
 " Fugitive
 " https://github.com/tpope/vim-fugitive/issues/76
