@@ -179,7 +179,9 @@ autocmd! BufWritePost * Neomake
 
 " Fugitive
 " https://github.com/tpope/vim-fugitive/issues/76
-command! Gdt tabedit %|Gdiff
+if exists(':Gdiff')
+	command! Gdt tabedit %|Gdiff
+endif
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
