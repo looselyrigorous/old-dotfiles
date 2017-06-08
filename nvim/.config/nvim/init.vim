@@ -5,7 +5,7 @@ let mapleader=","
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Dependencies
-Plug 'Shougo/vimproc.vim' " idanaraye/vim-vebugger
+Plug 'Shougo/vimproc.vim', { 'do': 'make' } " idanaraye/vim-vebugger
 Plug 'tpope/vim-repeat' " tpope/surround.vim
 
 " UI
