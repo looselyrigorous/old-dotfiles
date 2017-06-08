@@ -35,6 +35,8 @@ Plug 'roxma/nvim-completion-manager'
 	" Completion Packages
 	Plug 'roxma/clang_complete'
 	Plug 'Shougo/neco-vim'
+	Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+	Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 " Debugging
 Plug 'idanarye/vim-vebugger'
@@ -111,6 +113,7 @@ set title           " change terminal title
 set cursorline      " highlights current line
 set noshowmode       " Do not show --MODE--
 set laststatus=2    " Show Airline
+set shortmess+=c    " hide completions, e.g '-- XXX completion (YYY)', 'match 1 of 2', 'The only match'
 "set list
 set list lcs=tab:\▸\ 
 "set list lcs=tab:\┊\ 
@@ -183,20 +186,15 @@ if exists(':Gdiff')
 	command! Gdt tabedit %|Gdiff
 endif
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#ignore_sources = { '_': 'buffer' }
-set completeopt-=preview
+" nvim-completion-manager
+set completeopt=longest,menuone
+	" clang_complete
+	" Set appropriate paths on macOS
+	if has('unix')
+		if has('mac')
+			let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+		endif
+	endif
 
 " vim-better-whitespace
 hi link ExtraWhitespace Error
-
-
-" deoplete-clang
-" Set appropriate paths on macOS
-if has('unix')
-	if has('mac')
-		let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-		let g:deoplete#sources#clang#clang_header='/usr/include'
-	endif
-endif
