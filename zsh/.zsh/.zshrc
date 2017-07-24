@@ -15,6 +15,11 @@ for file in ${config_files}; do
 	source $file
 done
 
+# Bootstrap zplugin
+if ! test -d "$HOME/.zsh/.zplugin/";  then
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/psprint/zplugin/master/doc/install.sh)"
+fi
+
 # Source zplugin
 source "$HOME/.zsh/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
