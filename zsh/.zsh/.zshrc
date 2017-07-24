@@ -15,24 +15,23 @@ for file in ${config_files}; do
 	source $file
 done
 
-# Bootstrap and source antibody
-if [[ ! -f "/usr/local/bin/antibody" ]]; then
-	curl -s https://raw.githubusercontent.com/getantibody/installer/master/install | bash -s
-fi
-source <(antibody init)
+# Source zplugin
+source "$HOME/.zsh/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-# Source ZSH plugins
-# Pure prompt
-antibody bundle <<EOF
-mafredri/zsh-async
-sindresorhus/pure
-zsh-users/zsh-completions
-greymd/docker-zsh-completion
-zsh-users/zsh-autosuggestions
-hlissner/zsh-autopair
-zdharma/fast-syntax-highlighting
-zdharma/history-search-multi-word
-EOF
+# Load Plugins
+zplugin load mafredri/zsh-async
+zplugin load sindresorhus/pure
+
+zplugin load zsh-users/zsh-completions
+zplugin load greymd/docker-zsh-completion
+zplugin load zsh-users/zsh-autosuggestions
+
+zplugin load hlissner/zsh-autopair
+
+zplugin load zdharma/fast-syntax-highlighting
+zplugin load zdharma/history-search-multi-word
 
 # Autoloads
 autoload -U colors && colors
