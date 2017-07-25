@@ -35,8 +35,8 @@ zplugin load zsh-users/zsh-autosuggestions
 
 zplugin load hlissner/zsh-autopair
 
-zplugin load zdharma/fast-syntax-highlighting
 zplugin load zdharma/history-search-multi-word
+zplugin load zdharma/fast-syntax-highlighting
 
 # Autoloads
 autoload -U colors && colors
