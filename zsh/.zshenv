@@ -1,3 +1,6 @@
+# Setup MYDOTDIR
+export MYDOTDIR=$HOME/.dotfiles
+
 # Bits and pieces taken from prezto https://github.com/sorin-ionescu/prezto
 export ZDOTDIR=$HOME/.zsh
 
