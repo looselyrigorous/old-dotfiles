@@ -47,6 +47,10 @@ if [[ "$OSTYPE" == darwin* ]]; then
 			ssh 10.176.4.46 "doorlock"
 		fi
 	}
+
+	virt-manager() {
+		bash "$MYDOTDIR/scripts/macos-docker-virt-manager.sh"
+	}
 fi
 
 # Interactive mv, rm, cp
