@@ -4,6 +4,9 @@ dnssr() {
 	echo $(date +"%Y%m%d")$1
 }
 
+# https://github.com/dzervas/dotfiles
+alias 8ping="ping 8.8.8.8"
+
 if [[ "$OSTYPE" == darwin* ]]; then
 	pfd() {
 		osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'
