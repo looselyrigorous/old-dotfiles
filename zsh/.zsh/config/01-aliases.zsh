@@ -70,15 +70,12 @@ alias ll="ls -lh"
 alias la="ls -alh"
 
 alias j="jobs"
-if (( $+commands[python2] )); then
-	alias py="python2"
-	gpip() { PIP_REQUIRE_VIRTUALENV="" pip "$@" }
-fi
-
-if (( $+commands[python3] )); then
-	alias py3="python3"
-	gpip3() { PIP_REQUIRE_VIRTUALENV="" pip3 "$@" }
-fi
+for i in {2,3}; do
+	if (( $+commands[python$i] )); then
+		alias py$i="python$i"
+		gpip$i() { PIP_REQUIRE_VIRTUALENV="" pip$i "$@" }
+	fi
+done
 
 # https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments
 if (( $+commands[pygmentize] )); then
