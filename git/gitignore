@@ -12,6 +12,10 @@ Session.vim
 # auto-generated tag files
 tags
 
+### ZSH ###
+# Compiled ZSH scripts
+*.zwc
+
 ### OSX ###
 *.DS_Store
 .AppleDouble
