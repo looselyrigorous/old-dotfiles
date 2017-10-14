@@ -56,6 +56,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	}
 fi
 
+if [[ "$OSTYPE" == linux* ]]; then
+	alias o="xdg-open"
+	alias e="$EDITOR"
+	alias se="sudoedit"
+fi
+
 # Interactive mv, rm, cp
 alias mv="mv -i"
 alias cp="cp -i"
@@ -70,11 +76,12 @@ alias ll="ls -lh"
 alias la="ls -alh"
 
 alias j="jobs"
-for i in {2,3}; do
-	if (( $+commands[python$i] )); then
-		alias py$i="python$i"
-		gpip$i() { PIP_REQUIRE_VIRTUALENV="" pip$i "$@" }
-	fi
+
+# Python
+for ver in {,2,3}; do
+	(( $+commands[python$ver] )) && alias py$ver="python$ver"
+	[[ "$OSTYPE" == "darwin*" ]] && (( $+commands[pip$ver] )) && \
+		gpip$ver() { PIP_REQUIRE_VIRTUALENV="" pip "$@" }
 done
 
 # https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments
