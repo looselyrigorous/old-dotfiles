@@ -49,7 +49,7 @@ Plug 'moll/vim-bbye'
 Plug 'nicholaides/words-to-avoid.vim'
 
 " Filetypes
-Plug 'mips.vim'
+Plug 'harenome/vim-mipssyntax'
 
 " Themes
 "Plug 'jnurmine/Zenburn'
