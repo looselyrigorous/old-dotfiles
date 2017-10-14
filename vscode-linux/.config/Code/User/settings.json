@@ -1,0 +1,38 @@
+{
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "editor.fontFamily": "Iosevka, Fira Code, Monaco, monospace",
+    "editor.renderWhitespace": "all",
+    "editor.fontLigatures": true,
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true
+    },
+    "files.insertFinalNewline": true,
+
+    "workbench.colorTheme": "Material Dark Soda",
+    "workbench.iconTheme": "material-icon-theme",
+
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "nvim",
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.useCtrlKeys": true,
+    "vim.surround": true,
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors": {
+        "normal": "#a89984",
+        "insert": "#7ca96c",
+        "visual": "#d7a423",
+        "visualline": "#d7a423",
+        "visualblock": "#d7a423",
+        "replace": "#8ec17d"
+    },
+    "workbench.sideBar.location": "right",
+
+    "C_Cpp.intelliSenseEngine": "Default",
+    
+    "telemetry.enableTelemetry": false
+}
