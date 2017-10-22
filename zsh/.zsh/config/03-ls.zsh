@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Coloured ls output (if exa is not installed)
 
 if (( ! $+commands[exa] )); then

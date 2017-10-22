@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # In entirety taken from prezto https://github.com/sorin-ionescu/prezto
 
 # Options

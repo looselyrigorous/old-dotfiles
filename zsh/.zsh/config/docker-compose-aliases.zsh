@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Shamelessly stolen from
 # https://github.com/robbyrussell/oh-my-zsh/
 alias dco='docker-compose'

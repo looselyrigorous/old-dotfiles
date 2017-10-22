@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Bits and pieces taken from prezto https://github.com/sorin-ionescu/prezto
 
 # Variables

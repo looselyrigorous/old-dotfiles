@@ -1,5 +1,4 @@
-#!/usr/bin/env zsh
-
+#!/usr/bin/env bash
 dnssr() {
 	echo $(date +"%Y%m%d")$1
 }

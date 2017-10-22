@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 if (( $+commands[nvim] )); then
 	export VISUAL=nvim
 	export EDITOR=nvim

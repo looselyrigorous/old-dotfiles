@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 alias g="git"
 alias gp="git push"
 alias gl="git pull"
