@@ -41,15 +41,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	alias rssi="airport -I | grep \"CtlRSSI\|SSID\" | grep -v BSSID | sed -E 's/(^.*:) (.*)/\2/g' | sed -E 'N;s/(.*)\n(.*)/SSID: \2 RSSI: \1/'"
 	alias o="open"
 
-	doorlock() {
-			NETWORK="$(airport -I | grep SSID | grep -v BSSID | sed -E 's/(^.*:) (.*)/\2/g')"
-			if [ "$NETWORK" != "toLABaki" ]; then
-			ssh labaki1.csd.uoc.gr:6007 "doorlock"
-		else
-			ssh 10.176.4.46 "doorlock"
-		fi
-	}
-
 	virt-manager() {
 		bash "$MYDOTDIR/scripts/macos-docker-virt-manager.sh"
 	}
