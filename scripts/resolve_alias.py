@@ -16,7 +16,7 @@ def check_if_alias(path):
     try:
         with open(path, "rb") as f:
             header = f.read(16)
-    except IOError as e:
+    except IOError:
         return False
 
     # Check inspired from file(1)
@@ -55,7 +55,9 @@ def main():
     target = target_of_alias(path)
     if check_if_alias(target):
         print("Alias \"%s\" resolved to another alias:" % path,
-              "\n\t%s" % target, file=sys.stderr)
+              "\n\t%s" % target,
+              file=sys.stderr)
+        sys.exit(1)
     else:
         print(target)
 
