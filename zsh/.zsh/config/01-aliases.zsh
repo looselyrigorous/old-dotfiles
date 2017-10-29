@@ -31,6 +31,15 @@ if [[ "$OSTYPE" == darwin* ]]; then
 		fi
 	}
 
+	cda() {
+		if [ "$1" != "" ]; then
+			local target="$($MYDOTDIR/scripts/resolve_alias.py $1)"
+			if [ -d "$target" ]; then
+				cd "$target"; pwd
+			fi
+		fi
+	}
+
 	ql() {
 		if (( $# > 0 )); then
 			qlmanage -p "$@" &> /dev/null
