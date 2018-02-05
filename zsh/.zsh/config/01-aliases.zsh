@@ -90,8 +90,6 @@ fi
 # Python
 for ver in {,2,3}; do
 	(( $+commands[python$ver] )) && alias py$ver="python$ver"
-	[[ "$OSTYPE" == "darwin*" ]] && (( $+commands[pip$ver] )) && \
-		gpip$ver() { PIP_REQUIRE_VIRTUALENV="" pip "$@" }
 done
 
 # https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments
