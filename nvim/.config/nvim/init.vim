@@ -22,6 +22,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'triglav/vim-visual-increment'
 Plug 'godlygeek/tabular', { 'do': ':source tabular.vim' }
+Plug 'tpope/vim-sleuth'
 
 " Buffer view helpers
 Plug 'majutsushi/tagbar'
