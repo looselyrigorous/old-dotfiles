@@ -53,9 +53,14 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	virt-manager() {
 		bash "$MYDOTDIR/scripts/macos-docker-virt-manager.sh"
 	}
+
+	if (( $+commands[gxargs] )); then
+		GNU_XARGS=gxargs
+	fi
 fi
 
 if [[ "$OSTYPE" == linux* ]]; then
+	GNU_XARGS=xargs
 	alias o="xdg-open"
 	alias e="$EDITOR"
 	alias se="sudoedit"
@@ -75,6 +80,12 @@ alias ll="ls -lh"
 alias la="ls -alh"
 
 alias j="jobs"
+
+if [ ! -z "$GNU_XARGS" ]; then
+	ppgrep() {
+		pgrep $@ | $GNU_XARGS -r -- ps -fp
+	}
+fi
 
 # Python
 for ver in {,2,3}; do
