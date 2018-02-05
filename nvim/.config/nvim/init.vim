@@ -94,9 +94,9 @@ set smarttab        " insert tabs on the start of a line according to shiftwidth
 
 " Set makeprg
 if has('unix')
-  if has('mac')
-    set makeprg=gmake
-  endif
+	if has('mac')
+		set makeprg=gmake
+	endif
 endif
 
 " Search
@@ -198,13 +198,13 @@ endif
 
 " nvim-completion-manager
 set completeopt=longest,menuone
-	" clang_complete
-	" Set appropriate paths on macOS
-	if has('unix')
-		if has('mac')
-			let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-		endif
+" clang_complete
+" Set appropriate paths on macOS
+if has('unix')
+	if has('mac')
+		let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 	endif
+endif
 
 " vim-better-whitespace
 hi link ExtraWhitespace Error
