@@ -1,8 +1,9 @@
 {
-    "editor.fontSize": 13,
-    "terminal.integrated.fontSize": 13,
-    "editor.fontFamily": "Iosevka Term, Fira Code, Monaco, monospace",
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "editor.fontFamily": "Iosevka Slab, Monaco, monospace",
     "editor.renderWhitespace": "all",
+    "editor.minimap.enabled": false,
 
     "files.exclude": {
         "**/.git": true,
@@ -10,13 +11,6 @@
         "**/.hg": true,
         "**/.DS_Store": true
     },
-    "files.insertFinalNewline": true,
-
-    "terminal.integrated.enableBold": false,
-    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-    "terminal.integrated.shellArgs.osx": [
-        "-l"
-    ],
 
     "workbench.colorTheme": "Gruvbox Dark (Medium)",
     "workbench.iconTheme": "material-icon-theme",
@@ -42,5 +36,15 @@
     },
     "workbench.sideBar.location": "right",
 
-    "C_Cpp.intelliSenseEngine": "Default"
+    "terminal.integrated.shell.osx": "/usr/bin/login",
+    "terminal.integrated.shellArgs.osx": [
+        "-pfql", "looselyrigorous", "/usr/local/bin/zsh"
+    ],
+
+    //"C_Cpp.intelliSenseEngine": "Default",
+
+    "python.venvPath": "~/.pyenv/versions",
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true
 }
