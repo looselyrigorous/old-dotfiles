@@ -94,7 +94,13 @@ done
 
 # https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments
 if (( $+commands[pygmentize] )); then
-	pless() { pygmentize -g -f 16m $* | less -R }
+	pless() {
+		if [ $# -eq 1 ] && [ -f $1 ] ; then
+			pygmentize -g -f 16m $* | less -R
+		else
+			echo "usage: $0 file"
+		fi
+	}
 fi
 
 (( $+commands[thefuck] )) && eval $(thefuck --alias)
