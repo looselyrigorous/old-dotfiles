@@ -71,6 +71,7 @@ Plug 'moll/vim-bbye'
 Plug 'nicholaides/words-to-avoid.vim'
 
 " Filetypes
+Plug 'cespare/vim-toml'
 Plug 'harenome/vim-mipssyntax'
 
 " Themes

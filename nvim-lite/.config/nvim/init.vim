@@ -39,6 +39,9 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-obsession'
 Plug 'moll/vim-bbye'
 
+" Filetypes
+Plug 'cespare/vim-toml'
+
 " Themes
 "Plug 'jnurmine/Zenburn'
 Plug 'morhetz/gruvbox'
