@@ -1,6 +1,14 @@
 " Set leader key early
 let mapleader=","
 
+" Set host python early (macOS)
+if has('unix')
+	if has('mac')
+		let g:python_host_prog=expand('~/.pyenv/versions/neovim2/bin/python')
+		let g:python3_host_prog=expand('~/.pyenv/versions/neovim3/bin/python')
+	endif
+endif
+
 " --- Plugin Manager Configuration ---
 call plug#begin('~/.local/share/nvim/plugged')
 
