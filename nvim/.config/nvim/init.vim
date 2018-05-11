@@ -1,3 +1,16 @@
+" Bootstrap vim-plug
+" Modified from:
+" https://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+let al_plug=expand('~/.local/share/nvim/site/autoload/plug.vim')
+let plug_installed=1
+if !filereadable(al_plug)
+	echo "Installing vim-plug"
+	echo ""
+	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	let plug_installed=0
+endif
+
 " Set leader key early
 let mapleader=","
 
@@ -70,6 +83,11 @@ Plug 'altercation/vim-colors-solarized'
 " Funzies
 Plug 'koron/nyancat-vim'
 "Plug 'mattn/invader-vim'
+
+" Install Plugins if vim-plug wasn't installed
+if !plug_installed
+	:PlugInstall
+endif
 
 call plug#end()
 " Automatically called:
