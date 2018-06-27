@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 dnssr() {
-	echo $(date +"%Y%m%d")$1
+	echo "$(date +"%Y%m%d")$1"
 }
 
 # https://github.com/dzervas/dotfiles
@@ -23,9 +23,10 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	}
 
 	cdf() {
-		local target="$(pfd)"
+		local target
+		target="$(pfd)"
 		if [ "$target" != "" ]; then
-			cd "$target"; pwd
+			cd "$target" || return; pwd
 		else
 			echo 'No Finder window found' >&2
 		fi
@@ -33,9 +34,10 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
 	cda() {
 		if [ "$1" != "" ]; then
-			local target="$($MYDOTDIR/scripts/resolve_alias.py $1)"
+			local target
+			target=$("$MYDOTDIR/scripts/resolve_alias.py" "$1")
 			if [ -d "$target" ]; then
-				cd "$target"; pwd
+				cd "$target" || return; pwd
 			fi
 		fi
 	}
@@ -47,7 +49,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	}
 
 	alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
-	alias rssi="airport -I | grep \"CtlRSSI\|SSID\" | grep -v BSSID | sed -E 's/(^.*:) (.*)/\2/g' | sed -E 'N;s/(.*)\n(.*)/SSID: \2 RSSI: \1/'"
+	alias rssi="airport -I | grep \"CtlRSSI\\|SSID\" | grep -v BSSID | sed -E 's/(^.*:) (.*)/\\2/g' | sed -E 'N;s/(.*)\\n(.*)/SSID: \\2 RSSI: \\1/'"
 	alias o="open"
 
 	virt-manager() {
@@ -55,14 +57,14 @@ if [[ "$OSTYPE" == darwin* ]]; then
 	}
 
 	if (( $+commands[gxargs] )); then
-		GNU_XARGS=gxargs
+		GNU_XARGS="gxargs"
 	fi
 fi
 
 if [[ "$OSTYPE" == linux* ]]; then
-	GNU_XARGS=xargs
+	GNU_XARGS="xargs"
 	alias o="xdg-open"
-	alias e="$EDITOR"
+	alias e="\$EDITOR"
 	alias se="sudoedit"
 fi
 
@@ -83,20 +85,21 @@ alias j="jobs"
 
 if [ ! -z "$GNU_XARGS" ]; then
 	ppgrep() {
-		pgrep $@ | $GNU_XARGS -r -- ps -fp
+		pgrep "$@" | $GNU_XARGS -r -- ps -fp
 	}
 fi
 
 # Python
 for ver in {,2,3}; do
-	(( $+commands[python$ver] )) && alias py$ver="python$ver"
+	(( $+commands[python$ver] )) && alias py$ver=python$ver
 done
+unset ver
 
 # https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments
 if (( $+commands[pygmentize] )); then
 	pless() {
-		if [ $# -eq 1 ] && [ -f $1 ] ; then
-			pygmentize -g -f 16m $* | less -R
+		if [ $# -eq 1 ] && [ -f "$1" ] ; then
+			pygmentize -g -f 16m "$@" | less -R
 		else
 			echo "usage: $0 file"
 		fi

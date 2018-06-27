@@ -1,18 +1,17 @@
 # Stash for environment vars
 if [[ -a $ZDOTDIR/localrc ]]; then
-	source $ZDOTDIR/localrc
-
+	source "$ZDOTDIR/localrc"
 else
-	touch $ZDOTDIR/localrc
+	touch "$ZDOTDIR/localrc"
 fi
 
 # load config filenames into an array
 typeset -U config_files
-config_files=($ZDOTDIR/**/*.zsh)
+config_files=("$ZDOTDIR"/**/*.zsh)
 
 # Load all config files
 for file in ${config_files}; do
-	source $file
+	source "$file"
 done
 
 # Bootstrap zplugin
