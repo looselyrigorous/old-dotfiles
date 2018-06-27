@@ -20,6 +20,10 @@ alias gm="git merge"
 alias gst="git stash"
 alias gr="git reset"
 
+if (( $+commands[git-crypt] )); then
+	alias gcr="git-crypt"
+fi
+
 function grcd() {
 	cd "$(git root)" || return;
 }
