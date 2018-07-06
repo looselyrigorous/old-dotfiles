@@ -24,18 +24,27 @@ source "$HOME/.zsh/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
+mode="light"
+plg_debug="${plg_debug:-false}"
+if [[ "$plg_debug" == "true" ]]; then
+	mode="load"
+fi
+
 # Load Plugins
 zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin load sindresorhus/pure
+zplugin "$mode" sindresorhus/pure
 
-zplugin load zsh-users/zsh-completions
-zplugin load greymd/docker-zsh-completion
-zplugin load zsh-users/zsh-autosuggestions
+zplugin "$mode" zsh-users/zsh-completions
+zplugin "$mode" greymd/docker-zsh-completion
 
-zplugin load hlissner/zsh-autopair
+zplugin ice wait'1' atload'_zsh_autosuggest_start'
+zplugin "$mode" zsh-users/zsh-autosuggestions
 
-zplugin load zdharma/history-search-multi-word
-zplugin load zdharma/fast-syntax-highlighting
+zplugin "$mode" hlissner/zsh-autopair
+
+zplugin ice compile"(hsmw-*|history-*)"
+zplugin "$mode" zdharma/history-search-multi-word
+zplugin "$mode" zdharma/fast-syntax-highlighting
 
 # Autoloads
 autoload -U colors && colors
