@@ -25,7 +25,7 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 # Load Plugins
-zplugin load mafredri/zsh-async
+zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin load sindresorhus/pure
 
 zplugin load zsh-users/zsh-completions
