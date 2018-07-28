@@ -3,7 +3,6 @@
 	email = looselyrigorous@gmail.com
 	signingkey = E63A5B383165BD72
 [core]
-	editor = vim
 	pager = less -F -X
 	excludesfile = ~/.dotfiles/git/gitignore
 	whitespace = trailing-space,space-before-tab
