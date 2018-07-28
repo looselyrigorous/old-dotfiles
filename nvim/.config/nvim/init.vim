@@ -157,10 +157,11 @@ colorscheme gruvbox
 
 " Editor
 set backspace=indent,eol,start
-set scrolloff=5     " minimum number of lines to keep below the cursor
-set nowrap          " don't wrap lines
-set textwidth=100   " Wordwrap at 100th column
-set colorcolumn=+1  " Colour the 101st column
+set scrolloff=5      " minimum number of lines to keep below the cursor
+set nowrap           " Don't visually wrap lines
+set textwidth=100    " Indicate 100th column on buffer
+set formatoptions-=t " ...but don't physically wrap text
+set colorcolumn=+1   " Colour the 101st column
 
 " --- Key Mappings ---
 
