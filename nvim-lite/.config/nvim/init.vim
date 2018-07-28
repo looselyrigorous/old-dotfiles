@@ -14,9 +14,6 @@ endif
 " Set leader key early
 let mapleader=","
 
-" Set host python early
-let g:python_host_prog='/Users/looselyrigorous/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog='/Users/looselyrigorous/.pyenv/versions/neovim3/bin/python'
 
 " --- Plugin Manager Configuration ---
 call plug#begin('~/.local/share/nvim/plugged')
