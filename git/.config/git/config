@@ -4,7 +4,7 @@
 	signingkey = E63A5B383165BD72
 [core]
 	pager = less -F -X
-	excludesfile = ~/.dotfiles/git/gitignore
+	excludesfile = ~/.config/git/ignore
 	whitespace = trailing-space,space-before-tab
 [push]
 	default = simple
