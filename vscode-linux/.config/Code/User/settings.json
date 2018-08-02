@@ -1,9 +1,11 @@
 {
-    "editor.fontSize": 16,
-    "terminal.integrated.fontSize": 16,
-    "editor.fontFamily": "Iosevka, Fira Code, Monaco, monospace",
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "editor.fontFamily": "Iosevka SS07, Fira Code, Monaco, monospace",
+    "terminal.integrated.fontFamily": "Iosevka SS07, Fira Code, Monaco, monospace",
     "editor.renderWhitespace": "all",
     "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
 
     "files.exclude": {
         "**/.git": true,
@@ -13,26 +15,23 @@
     },
     "files.insertFinalNewline": true,
 
-    "workbench.colorTheme": "Material Dark Soda",
+    "workbench.colorTheme": "Gruvbox Dark (Medium)",
     "workbench.iconTheme": "material-icon-theme",
 
-    "vim.enableNeovim": true,
-    "vim.neovimPath": "nvim",
-    "vim.disableAnnoyingNeovimMessage": true,
-    "vim.useCtrlKeys": true,
-    "vim.surround": true,
-    "vim.statusBarColorControl": true,
-    "vim.statusBarColors": {
-        "normal": "#a89984",
-        "insert": "#7ca96c",
-        "visual": "#d7a423",
-        "visualline": "#d7a423",
-        "visualblock": "#d7a423",
-        "replace": "#8ec17d"
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#a89984",
+        "statusBar.noFolderBackground": "#a89984",
+        "statusBar.debuggingBackground": "#a89984"
     },
     "workbench.sideBar.location": "right",
+    "workbench.activityBar.visible": false,
+
+    "python.venvPath": "~/.pyenv/versions",
 
     "C_Cpp.intelliSenseEngine": "Default",
     
-    "telemetry.enableTelemetry": false
+    "window.zoomLevel": 0,
+    "window.menuBarVisibility": "toggle",
+
+    "telemetry.enableTelemetry": false,
 }
