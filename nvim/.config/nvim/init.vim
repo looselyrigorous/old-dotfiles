@@ -53,12 +53,24 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 
 " Completion
-Plug 'roxma/nvim-completion-manager'
+Plug 'roxma/nvim-yarp' " ncm2 dep
+Plug 'ncm2/ncm2'
 	" Completion Packages
-	Plug 'roxma/clang_complete'
-	Plug 'Shougo/neco-vim'
-	Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-	Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+	" Generic
+	Plug 'ncm2/ncm2-bufword'
+	Plug 'ncm2/ncm2-path'
+	" Python
+	Plug 'ncm2/ncm2-jedi'
+	" C/C++
+	Plug 'ncm2/ncm2-pyclang'
+	" Vimscript
+	Plug 'ncm2/ncm2-vim'
+
+	" Leave LSP stuff out for now
+	"Plug 'autozimu/LanguageClient-neovim', {
+    "\ 'branch': 'next',
+    "\ 'do': 'bash install.sh',
+    "\ }
 
 " Debugging
 Plug 'idanarye/vim-vebugger', { 'branch': 'develop' }
@@ -224,13 +236,15 @@ if has('unix')
 	endif
 endif
 
-" nvim-completion-manager
-set completeopt=longest,menuone
-" clang_complete
+" ncm2
+set completeopt=noinsert,menuone,noselect
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" ncm2-pyclang
 " Set appropriate paths on macOS
 if has('unix')
 	if has('mac')
-		let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+		let g:ncm2_pyclang#library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 	endif
 endif
 
