@@ -1,7 +1,6 @@
 {
-    "editor.fontSize": 14,
-    "terminal.integrated.fontSize": 14,
-    "editor.fontFamily": "Iosevka SS07, Fira Code, Monaco, monospace",
+    "terminal.integrated.fontSize": 15,
+    "editor.fontFamily": "'M+ 1mn', Iosevka SS07, Fira Code, Monaco, monospace",
     "terminal.integrated.fontFamily": "Iosevka SS07, Fira Code, Monaco, monospace",
     "editor.renderWhitespace": "all",
     "editor.fontLigatures": true,
@@ -34,4 +33,6 @@
     "window.menuBarVisibility": "toggle",
 
     "telemetry.enableTelemetry": false,
+    "window.titleBarStyle": "native",
+    "editor.fontSize": 15,
 }
