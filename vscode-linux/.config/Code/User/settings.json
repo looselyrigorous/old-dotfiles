@@ -33,6 +33,7 @@
     "window.menuBarVisibility": "toggle",
 
     "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
     "window.titleBarStyle": "native",
     "editor.fontSize": 15,
 }
