@@ -14,15 +14,14 @@ for file in ${config_files}; do
 	source "$file"
 done
 
-# Bootstrap zplugin
-if ! test -d "$HOME/.zsh/.zplugin/";  then
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/psprint/zplugin/master/doc/install.sh)"
+# Bootstrap zinit
+if ! test -d "$HOME/.zsh/.zinit/";  then
+	mkdir "$HOME/.zsh/.zinit/"
+	git clone https://github.com/zdharma/zinit.git "$HOME/.zsh/.zinit/bin"
 fi
 
-# Source zplugin
-source "$HOME/.zsh/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+# Source zinit
+source "$HOME/.zsh/.zinit/bin/zinit.zsh"
 
 mode="light"
 plg_debug="${plg_debug:-false}"
@@ -40,20 +39,16 @@ zinit snippet PZT::modules/directory
 zinit snippet OMZ::plugins/docker-compose
 
 # Load Plugins
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin "$mode" sindresorhus/pure
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit "$mode" sindresorhus/pure
 
-zplugin "$mode" zsh-users/zsh-completions
-zplugin "$mode" greymd/docker-zsh-completion
+zinit "$mode" zsh-users/zsh-completions
 
-zplugin ice wait'1' atload'_zsh_autosuggest_start'
-zplugin "$mode" zsh-users/zsh-autosuggestions
+zinit ice wait'1' atload'_zsh_autosuggest_start'
+zinit "$mode" zsh-users/zsh-autosuggestions
 
-zplugin "$mode" hlissner/zsh-autopair
-
-zplugin ice compile"(hsmw-*|history-*)"
-zplugin "$mode" zdharma/history-search-multi-word
-zplugin "$mode" zdharma/fast-syntax-highlighting
+zinit "$mode" hlissner/zsh-autopair
+zinit "$mode" zdharma/fast-syntax-highlighting
 
 # Autoloads
 autoload -U colors && colors
