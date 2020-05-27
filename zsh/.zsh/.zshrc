@@ -30,6 +30,15 @@ if [[ "$plg_debug" == "true" ]]; then
 	mode="load"
 fi
 
+# Prezto snippets
+zinit ice wait"0" lucid svn blockf \
+    atclone'git clone --depth 3 https://github.com/zsh-users/zsh-completions.git external'
+zinit snippet PZT::modules/completion
+zinit snippet PZT::modules/directory
+
+# OMZ Snippets
+zinit snippet OMZ::plugins/docker-compose
+
 # Load Plugins
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin "$mode" sindresorhus/pure
