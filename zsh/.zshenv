@@ -46,3 +46,5 @@ export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 # Use XDG_DATA_HOME for node
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
+# Add flutter to PATH
+export PATH="$PATH:$XDG_DATA_HOME/flutter/bin"
