@@ -1,10 +1,14 @@
 {
     "terminal.integrated.fontSize": 15,
-    "editor.fontFamily": "'M+ 1mn', Iosevka SS07, Fira Code, Monaco, monospace",
+    "editor.fontFamily": "Iosevka Term SS07, Fira Code, Monaco, monospace, FontAwesome",
     "terminal.integrated.fontFamily": "Iosevka SS07, Fira Code, Monaco, monospace",
     "editor.renderWhitespace": "all",
     "editor.fontLigatures": true,
-    "editor.minimap.enabled": false,
+
+    "files.associations": {
+        "**/sway/config.d/*": "i3",
+        "**/sway/config": "i3"
+    },
 
     "files.exclude": {
         "**/.git": true,
@@ -14,26 +18,48 @@
     },
     "files.insertFinalNewline": true,
 
-    "workbench.colorTheme": "Gruvbox Dark (Medium)",
+    "workbench.colorTheme": "Gruvbox Dark Medium",
     "workbench.iconTheme": "material-icon-theme",
-
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#a89984",
-        "statusBar.noFolderBackground": "#a89984",
-        "statusBar.debuggingBackground": "#a89984"
-    },
-    "workbench.sideBar.location": "right",
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
 
     "python.venvPath": "~/.pyenv/versions",
 
     "C_Cpp.intelliSenseEngine": "Default",
-    
-    "window.zoomLevel": 0,
-    "window.menuBarVisibility": "toggle",
 
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     "window.titleBarStyle": "native",
-    "editor.fontSize": 15,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.fontSize": 16,
+    "cmake.configureOnOpen": false,
+    "window.menuBarVisibility": "toggle",
+    "editor.minimap.enabled": false,
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    "go.useLanguageServer": true,
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+        // Optional: Disable snippets, as they conflict with completion ranking.
+        "editor.snippetSuggestions": "none",
+    },
+    "[go.mod]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+    },
+    "python.dataScience.askForKernelRestart": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    }
 }
