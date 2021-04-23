@@ -10,7 +10,8 @@ export HISTSIZE=10000 # 500 is default
 export HISTFILESIZE=1000000
 export HISTTIMEFORMAT='%b %d %I:%M %p ' # using strftime format
 export HISTCONTROL=ignoreboth # ignoredups:ignorespace
-export HISTIGNORE="history:pwd:exit:df:ls:ls -la:ll"
+export HISTIGNORE="history:pwd:exit:df:ls *:la *:ll *:cctk *"
+export HISTORY_IGNORE="(history|pwd|exit|df|ls|la|ll|cctk)"
 
 # Set up XDG user dirs
 export XDG_DESKTOP_DIR="$HOME/Desktop"
