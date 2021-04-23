@@ -23,35 +23,47 @@ fi
 # Source zinit
 source "$HOME/.zsh/.zinit/bin/zinit.zsh"
 
-mode="light"
-plg_debug="${plg_debug:-false}"
-if [[ "$plg_debug" == "true" ]]; then
-	mode="load"
-fi
-
 # Prezto snippets
-zinit ice wait"0" lucid svn blockf \
-    atclone'git clone --depth 3 https://github.com/zsh-users/zsh-completions.git external'
-zinit snippet PZT::modules/completion
-zinit snippet PZT::modules/directory
+#zinit ice wait"0" lucid svn blockf \
+#    atclone'git clone --depth 3 https://github.com/zsh-users/zsh-completions.git external'
+#zinit snippet PZT::modules/completion
+zinit svn for \
+    PZT::modules/editor \
+    PZT::modules/directory \
+    PZT::modules/docker
 
 # OMZ Snippets
 zinit snippet OMZ::plugins/docker-compose
 
-# Load Plugins
-zinit ice pick"async.zsh" src"pure.zsh"
-zinit "$mode" sindresorhus/pure
+#zinit "$mode" zsh-users/zsh-completions
 
-zinit "$mode" zsh-users/zsh-completions
-
-zinit ice wait'1' atload'_zsh_autosuggest_start'
-zinit "$mode" zsh-users/zsh-autosuggestions
-
-zinit "$mode" hlissner/zsh-autopair
-zinit "$mode" zdharma/fast-syntax-highlighting
+zinit wait lucid light-mode for \
+  atinit"zicdreplay" \
+      zdharma/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' atload \
+      zsh-users/zsh-completions
 
 # Autoloads
 autoload -U colors && colors
-autoload -U promptinit && promptinit
-autoload -U compinit && compinit
 autoload -U zmv
+
+# Load Starship
+eval "$(starship init zsh)"
+
+# Load FZF zsh integration
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+#export FZF_DEFAULT_COMMAND="fd --type f"
+#export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+_fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
