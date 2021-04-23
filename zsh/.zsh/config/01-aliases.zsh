@@ -5,6 +5,7 @@ dnssr() {
 
 # https://github.com/dzervas/dotfiles
 alias 8ping="ping 8.8.8.8"
+alias 1ping="ping 1.1.1.1"
 
 if [[ "$OSTYPE" == darwin* ]]; then
 	pfd() {
@@ -66,6 +67,14 @@ if [[ "$OSTYPE" == linux* ]]; then
 	alias o="xdg-open"
 	alias e="\$EDITOR"
 	alias se="sudoedit"
+	# grep kernel modules
+	grepmod() {
+		if [ "$@" = "" ]; then
+			echo "usage: grepmod <grep-args>"
+		else
+			lsmod | grep "$@"
+		fi
+	}
 fi
 
 # Interactive mv, rm, cp
@@ -76,6 +85,7 @@ alias rm="rm -i"
 # Aliases for ls
 if (( $+commands[exa] )); then
 	alias ls="exa"
+	alias tree="exa --tree"
 fi
 alias l="ls -a"
 alias ll="ls -lh"
@@ -84,34 +94,10 @@ alias la="ls -alh"
 alias j="jobs"
 
 if [ ! -z "$GNU_XARGS" ]; then
-	ppgrep() {
-		pgrep "$@" | $GNU_XARGS -r -- ps -fp
-	}
-fi
-
-# Python
-for ver in {,2,3}; do
-	(( $+commands[python$ver] )) && alias py$ver=python$ver
-done
-unset ver
-
-# https://coderwall.com/p/7wvx0g/syntax-highlighting-in-the-terminal-with-pygments
-if (( $+commands[pygmentize] )); then
-	pless() {
-		if [ $# -eq 1 ] && [ -f "$1" ] ; then
-			pygmentize -g -f 16m "$@" | less -R
-		else
-			echo "usage: $0 file"
-		fi
+	psgrep() {
+		pgrep "$@" | $GNU_XARGS -r -- ps -wwfp | less -FX
 	}
 fi
 
 (( $+commands[thefuck] )) && eval $(thefuck --alias)
 (( $+commands[nvim] )) && alias vim="nvim"
-if (( $+commands[nvim] )); then
-	alias nvimrc="vim $HOME/.config/nvim/init.vim"
-fi
-if (( $+commands[vim] )); then
-	[[ -f $HOME/.vimrc ]] && alias vimrc="vim $HOME/.vimrc"
-	[[ -f $HOME/.vim/vimrc ]] && alias vimrc="vim $HOME/.vim/vimrc"
-fi
