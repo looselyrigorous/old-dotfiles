@@ -14,27 +14,17 @@ endif
 " Set leader key early
 let mapleader=","
 
-" Set host python early (macOS)
-if has('unix')
-	if has('mac')
-		let g:python_host_prog=expand('~/.pyenv/versions/neovim2/bin/python')
-		let g:python3_host_prog=expand('~/.pyenv/versions/neovim3/bin/python')
-	else
-		let g:python_host_prog=expand('~/.local/share/pyenv/versions/neovim2/bin/python')
-		let g:python3_host_prog=expand('~/.local/share/pyenv/versions/neovim3/bin/python')
-	endif
-endif
-
 " --- Plugin Manager Configuration ---
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Dependencies
-Plug 'Shougo/vimproc.vim', { 'do': 'make' } " idanaraye/vim-vebugger
 Plug 'tpope/vim-repeat' " tpope/surround.vim
 
-" UI
+" UI / Themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Themes
+Plug 'morhetz/gruvbox'
 
 " Version Control
 Plug 'tpope/vim-fugitive'
@@ -76,30 +66,13 @@ Plug 'ncm2/ncm2'
     "\ 'do': 'bash install.sh',
     "\ }
 
-" Debugging
-Plug 'idanarye/vim-vebugger', { 'branch': 'develop' }
-
 " Session Management
 Plug 'tpope/vim-obsession'
 Plug 'moll/vim-bbye'
 
-" Misc Functionality
-Plug 'nicholaides/words-to-avoid.vim'
-
 " Filetypes
 Plug 'cespare/vim-toml'
 Plug 'harenome/vim-mipssyntax'
-
-" Themes
-"Plug 'jnurmine/Zenburn'
-Plug 'tomasr/molokai'
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
-
-" Funzies
-Plug 'koron/nyancat-vim'
-"Plug 'mattn/invader-vim'
 
 " Install Plugins if vim-plug wasn't installed
 if !plug_installed
